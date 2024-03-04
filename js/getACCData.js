@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         await getNamingStandard()
         await getTemplateFiles()
         getCustomDetailsData()
-
+        populateClassificationDropdown(uniclassClassificationsArray)
         hideLoadingScreen();
  
     }
@@ -517,35 +517,10 @@ async function getNamingStandardforproject(access_token,ns_id,project_id){
     
     }
 
-    // Function to fetch and parse CSV data with specified columns and remove headers
-async function loadCSVWithColumns(url, codeColumnIndex, titleColumnIndex) {
-    const response = await fetch(url);
-    const data = await response.text();
-    const rows = data.split('\n');
-    const result = [];
 
-    // Start iterating from the second row to skip headers
-    for (let i = 1; i < rows.length; i++) {
-        const row = rows[i].trim(); // Trim the row to handle potential leading/trailing whitespace
-        if (row) { // Check if the row is not empty
-            const columns = row.split(',');
-            const code = columns[codeColumnIndex];
-            let title = columns[titleColumnIndex] || ''; // Use an empty string if the title column is undefined
-            title = title.trim().replace(/\r$/, ''); // Remove '\r' from the end of the title
-            result.push({ code, title });
-        }
-    }
-
-    return result;
-}
-
-// Usage
-const csvUrl = '../assets/uniclassClassifications.csv';
-const codeColumnIndex = 0; // Assuming code is in the first column (0-indexed)
-const titleColumnIndex = 1; // Assuming title is in the second column (0-indexed)
 
 // Function to populate dropdown with data
-function populateDropdown(data) {
+function populateClassificationDropdown(data) {
     const dropdown = document.getElementById('input_Classification');
 
     // Clear existing options
@@ -566,10 +541,47 @@ function populateDropdown(data) {
 }
 
 // Usage
-loadCSVWithColumns(csvUrl, codeColumnIndex, titleColumnIndex)
-    .then(data => {
-        populateDropdown(data);
-    })
-    .catch(error => {
-        console.error('Error loading CSV:', error);
-    });
+
+
+    const NBS_ClientID = "43F135AD-454B-41FD-9595-AD5B22043FBF"
+    const NBS_ClientSecret = "A3FC7F77-3A1A-4243-B37A-A64FD6B7DD98"
+
+//generateNBSAccessToken(NBS_ClientID,NBS_ClientSecret)
+
+async function generateNBSAccessToken(clientId,clientSecret){
+    const bodyData = {
+    client_id: clientId,
+    client_secret: clientSecret,
+    grant_type:'client_credentials',
+    scope:'bimtoolkitapi'
+    };
+
+    var formBody = [];
+    for (var property in bodyData) {
+        var encodedKey = encodeURIComponent(property);
+        var encodedValue = encodeURIComponent(bodyData[property]);
+        formBody.push(encodedKey + "=" + encodedValue);
+    };
+    formBody = formBody.join("&")
+
+    const headers = {
+        'Content-Type': 'application/x-www-form-urlencoded',
+    };
+
+    const requestOptions = {
+        method: 'POST',
+        headers: headers,
+        body: formBody,
+    };
+    const apiUrl = 'https://identity.thenbs.com/core/connect/token';
+    //console.log(requestOptions)
+    AccessToken_Local = await fetch(apiUrl,requestOptions)
+        .then(response => response.json())
+        .then(data => {
+        //console.log(data)
+        console.log("NBS Access Token",data.access_token)
+        return data.access_token
+        })
+        .catch(error => console.error('Error fetching data:', error));
+        return AccessToken_Local
+    }
