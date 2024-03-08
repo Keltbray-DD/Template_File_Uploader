@@ -28,12 +28,9 @@ const StatesList = [
 
 const searchFolders =[
     "urn:adsk.wipemea:fs.folder:co.l7DHLbVaRl-XxgXi8QYFZw", // 0C.KELTBRAY - WIP
-    "urn:adsk.wipemea:fs.folder:co.tcYHcSUGR-eZyS9zfZ103Q", // 0D.SUB-CONTRACTORs - JACOBS - WIP
-    //"urn:adsk.wipemea:fs.folder:co.XUG4NnuhQhitF0EJV3Ta4A", // 0D.SUB-CONTRACTORs - WENTWORTH HOUSE - WIP
-    "urn:adsk.wipemea:fs.folder:co.mRskcAmVS420xLXVgxF8ZA", // 0E.SHARED
-    "urn:adsk.wipemea:fs.folder:co.7WXxzz59TIeOn-7A3G9LZw", // 0F.CLIENT_SHARED
-    "urn:adsk.wipemea:fs.folder:co.eAYof_jAT4CEEWexlbl35w", // 0G.PUBLISHED
-    "urn:adsk.wipemea:fs.folder:co.zKkBY6rfQGadO5owcDYKIQ", // 0H.ARCHIVED
+    "urn:adsk.wipemea:fs.folder:co.qeC55Y6HQy6kKe6PbW-mhQ", // 0E.SHARED
+    "urn:adsk.wipemea:fs.folder:co.XIziDerqSqGjNXnqGg6pkA", // 0F.CLIENT_SHARED
+    "urn:adsk.wipemea:fs.folder:co.aZl56qPjR6WNX36gfuCa2A", // 0G.PUBLISHED
 ]
 
 var AccessToken_DataCreate
