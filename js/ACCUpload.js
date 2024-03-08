@@ -638,6 +638,11 @@ async function getItemDetails(AccessToken){
     }
 
 async function postCustomItemDetails(AccessToken){
+    if($("#input_Classification").val()===""){
+        classValue = ""
+    }else{
+        classValue = $("#input_Classification").val()
+    }
     //console.log("SD",$("#input_StatusDesc").val())
     const bodyData = [
         {
@@ -668,7 +673,7 @@ async function postCustomItemDetails(AccessToken){
         {
              // Status Description
           "id": ClassificationID.id,
-          "value": $("#input_Classification").val()
+          "value": classValue
         },
         {
              // Status Description
