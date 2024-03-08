@@ -638,7 +638,7 @@ async function getItemDetails(AccessToken){
     }
 
 async function postCustomItemDetails(AccessToken){
-    if($("#input_Classification").val()===""){
+    if($("#input_Classification").val()==="Select a classification"){
         classValue = ""
     }else{
         classValue = $("#input_Classification").val()
