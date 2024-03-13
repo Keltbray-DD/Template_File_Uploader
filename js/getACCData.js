@@ -136,7 +136,7 @@ async function getNamingStandard() {
     }
 
     console.log(namingstandard)
-    arrayprojectPin = namingstandard.find(item => item.name === "Project(1)") // Change back to Project Pin
+    arrayprojectPin = namingstandard.find(item => item.name === "Project PIN") // Change back to Project Pin
     arrayprojectPin = arrayprojectPin ? arrayprojectPin.options : [];
 
     // Get the dropdown container

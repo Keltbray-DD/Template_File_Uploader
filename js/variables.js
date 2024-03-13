@@ -1,14 +1,14 @@
-const projectID = "9a5cd8e7-e759-41a7-817c-d4e7e6ca921a";
-const namingstandardID ="bb0237b0-c47e-5b31-ad0e-55053c54df31"
+const projectID = "cc04c5f0-9a49-4195-96ea-8276a4fd1201";
+const namingstandardID ="cbddd21a-1d5d-52d1-80a5-2d1c21ef0197"
 const hubID= "b.24d2d632-e01b-4ca0-b988-385be827cb04"
 const bucketKey = "wip.dm.emea.2"
-const defaultFolder = "urn:adsk.wipemea:fs.folder:co.l7DHLbVaRl-XxgXi8QYFZw" // KELTBRAY - WIP Folder
-const templateFolderID = "urn:adsk.wipemea:fs.folder:co.2ZXQxf1aQNeSQHoJ6_n-Jw" // APPROVED_TEMPLATES Folder
+const defaultFolder = "urn:adsk.wipemea:fs.folder:co.fVQbMv6BQUefajn7evnmSw" // KELTBRAY - WIP Folder
+const templateFolderID = "urn:adsk.wipemea:fs.folder:co.2bLO3HWeQmq5d_oMM7dVuA" // APPROVED_TEMPLATES Folder
 
 
 
 const uploadfolders = [
-    {folderName:"KELTBRAY - WIP",folderID:"urn:adsk.wipemea:fs.folder:co.l7DHLbVaRl-XxgXi8QYFZw"},
+    {folderName:"KELTBRAY - WIP",folderID:"urn:adsk.wipemea:fs.folder:co.fVQbMv6BQUefajn7evnmSw"},
     //{folderName:"SHARED",folderID:"urn:adsk.wipemea:fs.folder:co.mRskcAmVS420xLXVgxF8ZA"}
 ]
 
@@ -27,10 +27,12 @@ const StatesList = [
 ];
 
 const searchFolders =[
-    "urn:adsk.wipemea:fs.folder:co.l7DHLbVaRl-XxgXi8QYFZw", // 0C.KELTBRAY - WIP
-    "urn:adsk.wipemea:fs.folder:co.qeC55Y6HQy6kKe6PbW-mhQ", // 0E.SHARED
-    "urn:adsk.wipemea:fs.folder:co.XIziDerqSqGjNXnqGg6pkA", // 0F.CLIENT_SHARED
-    "urn:adsk.wipemea:fs.folder:co.aZl56qPjR6WNX36gfuCa2A", // 0G.PUBLISHED
+    "urn:adsk.wipemea:fs.folder:co.fVQbMv6BQUefajn7evnmSw", // 0C.KELTBRAY - WIP
+"urn:adsk.wipemea:fs.folder:co.NxjqFHVtRvaLgTpzPeFF2A", // 0D.BBN - WIP
+"urn:adsk.wipemea:fs.folder:co.T1ockx3tRzCOfni80QuhzA", // 0E.SHARED
+"urn:adsk.wipemea:fs.folder:co.n8M-ILKySGeJWMKGO19FOg", // 0F.CLIENT_SHARED
+"urn:adsk.wipemea:fs.folder:co.dsMTe3uWRniqD2X0y4WEJw", // 0G.PUBLISHED
+"urn:adsk.wipemea:fs.folder:co.Q8t27AgsSiGqPr32Wjsmnw", // 0H.ARCHIVED
 ]
 
 var AccessToken_DataCreate
