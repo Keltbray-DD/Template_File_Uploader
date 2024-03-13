@@ -9,7 +9,7 @@ const templateFolderID = "urn:adsk.wipemea:fs.folder:co.2bLO3HWeQmq5d_oMM7dVuA" 
 
 const uploadfolders = [
     {folderName:"KELTBRAY - WIP",folderID:"urn:adsk.wipemea:fs.folder:co.fVQbMv6BQUefajn7evnmSw"},
-    //{folderName:"SHARED",folderID:"urn:adsk.wipemea:fs.folder:co.mRskcAmVS420xLXVgxF8ZA"}
+    {folderName:"BBN - WIP",folderID:"urn:adsk.wipemea:fs.folder:co.NxjqFHVtRvaLgTpzPeFF2A"}
 ]
 
 const StatesList = [
