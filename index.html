@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="icon" href="./assets/media/Keltbray-logo_single.png" type="image/x-icon">
-
+    <script src="https://kit.fontawesome.com/eefbfa2a22.js" crossorigin="anonymous"></script>
     <title>Digital Delivery Hub - TEST ACC File Uploader</title>
 </head>
 
@@ -34,6 +34,9 @@
       <div id="loadingScreen">
         <div class="spinner"></div>
         <p>Loading ACC Data...</p>
+      <div id="tooltip" class="tooltip">
+
+      </div>
       </div>
             <form class="" id="ACC_FileNo_Generator" >
                 <div class="form-group">
@@ -42,37 +45,37 @@
                     <h3 class="form-heading">Step 1. Generate file name</h3>
                     <!-- Project PIN Input-->
                     <ul class="form-step1">
-                      <li class="form-line" data-type="control_dropdown" id="id_5"><label class="form-label" id="label_5" for="input_5" aria-hidden="false"> Project PIN </label>
+                      <li class="form-line" data-type="control_dropdown" id="id_5"><label class="form-label" id="label_5" for="input_5" aria-hidden="false"> Project PIN </label><i class="fa-regular fa-circle-question" value="Project Pin"></i>
                           <div id="cid_5" class="form-input-wide" data-layout="full">
                             <select class="form-dropdown" id="ProjectPin_input" name="" data-component="ProjectRole" aria-label="Project PIN">
                             </select> </div>
                         </li>
                       <!-- Originator Input-->
-                      <li class="form-line" data-type="control_dropdown" id="id_5"><label class="form-label form-label-top form-label-auto" id="label_5" for="input_5" aria-hidden="false"> Originator </label>
+                      <li class="form-line" data-type="control_dropdown" id="id_5"><label class="form-label form-label-top form-label-auto" id="label_5" for="input_5" aria-hidden="false"> Originator </label><i class="fa-regular fa-circle-question" value="Originator"></i>
                           <div id="cid_5" class="form-input-wide" data-layout="full">
                             <select class="form-dropdown" id="Originator_input" name="" data-component="ProjectRole" aria-label="Originator">
                             </select> </div>
                         </li>
                       <!-- Function Input-->
-                      <li class="form-line" data-type="control_dropdown" id="id_5"><label class="form-label form-label-top form-label-auto" id="label_5" for="input_5" aria-hidden="false"> Function </label>
+                      <li class="form-line" data-type="control_dropdown" id="id_5"><label class="form-label form-label-top form-label-auto" id="label_5" for="input_5" aria-hidden="false"> Function </label><i class="fa-regular fa-circle-question" value="Function"></i>
                           <div id="cid_5" class="form-input-wide" data-layout="full">
                             <select class="form-dropdown" id="Function_input" name="" data-component="ProjectRole" aria-label="Function">
                             </select> </div>
                         </li>
                       <!-- Spatial Input-->
-                      <li class="form-line" data-type="control_dropdown" id="id_5"><label class="form-label form-label-top form-label-auto" id="label_5" for="input_5" aria-hidden="false"> Spatial </label>
+                      <li class="form-line" data-type="control_dropdown" id="id_5"><label class="form-label form-label-top form-label-auto" id="label_5" for="input_5" aria-hidden="false"> Spatial </label><i class="fa-regular fa-circle-question" value="Spatial"></i>
                           <div id="cid_5" class="form-input-wide" data-layout="full">
                             <select class="form-dropdown" id="Spatial_input" name="" data-component="ProjectRole" aria-label="Spatial">
                             </select> </div>
                         </li>
                       <!-- Form Input-->
-                      <li class="form-line" data-type="control_dropdown" id="id_5"><label class="form-label form-label-top form-label-auto" id="label_5" for="input_5" aria-hidden="false"> Form </label>
+                      <li class="form-line" data-type="control_dropdown" id="id_5"><label class="form-label form-label-top form-label-auto" id="label_5" for="input_5" aria-hidden="false"> Form </label><i class="fa-regular fa-circle-question" value="Form"></i>
                           <div id="cid_5" class="form-input-wide" data-layout="full">
                             <select class="form-dropdown" id="Form_input" name="" data-component="ProjectRole" aria-label="Form">
                             </select> </div>
                         </li>
                       <!-- Discipline Input-->
-                      <li class="form-line" data-type="control_dropdown" id="id_5"><label class="form-label form-label-top form-label-auto" id="label_5" for="input_5" aria-hidden="false"> Discipline </label>
+                      <li class="form-line" data-type="control_dropdown" id="id_5"><label class="form-label form-label-top form-label-auto" id="label_5" for="input_5" aria-hidden="false"> Discipline </label><i class="fa-regular fa-circle-question" value="Discipline"></i>
                         <div id="cid_5" class="form-input-wide" data-layout="full">
                           <select class="form-dropdown" id="Discipline_input" name="" data-component="ProjectRole" aria-label="Discipline">
                           </select> </div>
@@ -169,9 +172,9 @@
                       </select>
                     </div>
 
-                      <div id="drop-area" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" ondragenter="handleDragEnter(event)" ondragleave="handleDragLeave(event)">
+                      <div id="drop-area" onclick="openFileExplorer()" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" ondragenter="handleDragEnter(event)" ondragleave="handleDragLeave(event)" onchange="handleFileSelect(event)">
                         <i class="file-icon fas fa-file-alt"></i>
-                        <p  onclick="openFileExplorer()">Click here or Drag and drop a file here</p>
+                        <p >Click here or Drag and drop a file here</p>
                         <input type="file" id="fileInput" onchange="handleFileSelect(event)">
                       </div>
                     <div id="file-info"></div>

@@ -487,6 +487,7 @@ async function getNamingStandardforproject(access_token,ns_id,project_id){
     function handleDrop(event) {
     event.preventDefault();
     var file = event.dataTransfer.files[0];
+    console.log(file)
     handleFile(file);
     }
 
@@ -514,7 +515,8 @@ async function getNamingStandardforproject(access_token,ns_id,project_id){
     fileExtension = file.name.split('.').pop();
     // Add 'uploaded' class to indicate file upload
     document.getElementById('drop-area').classList.add('uploaded');
-    
+    console.log(file)
+    droppedfile = file
     }
 
 

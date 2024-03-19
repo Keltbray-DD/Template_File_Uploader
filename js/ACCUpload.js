@@ -167,8 +167,18 @@ function runUpload(){
         return; // Exit the function
     }
     if(originSelectionDropdown.value === "User PC" ){
-        const fileCheck = fileInput.files[0];
-        if(fileCheck){
+
+        if(droppedfile){
+            console.log(droppedfile)
+            uploadfile = droppedfile
+
+        }else{
+            console.log(fileInput.files[0])
+            uploadfile = fileInput.files[0];
+        }
+
+        console.log(uploadfile)
+        if(uploadfile){
         }else{
             alert('Please upload a file');
             return; // Exit the function
@@ -193,9 +203,13 @@ function runUpload(){
 
     }else if(originSelectionDropdown.value === "User PC"){
 
-
-        var file = fileInput.files[0];
-        file = renameFile(fileInput)
+        let file
+        if(droppedfile){
+            file = renameFileDrop(uploadfile)
+        }else{
+            file = renameFile(uploadfile)
+        }
+        console.log(file)
         filename = file.name
     }
     console.log(filename)
@@ -347,39 +361,15 @@ async function uploadtoSignURL(uploadURL) {
                 //'Authorization': 'Bearer ' + AccessToken,
                 "Content-Type": 'application/octet-stream'
             };
-            let fileData
             if(originSelectionDropdown.value === "User PC"){
-            const fileInput = document.getElementById('fileInput');
-            var file = fileInput.files[0];
-            file = renameFile(fileInput)
-
-            // Create a FormData object and append the binary data
+                file = uploadfile
 
             }else if(originSelectionDropdown.value === "Template Folder"){
                 file = fileTemplate
             }
 
-
             const apiUrl = uploadURL;
-            const reader = new FileReader(); // Create a new FileReader object
 
-            reader.onload = function(event) {
-                const fileContent = file; // Get the file content
-                console.log('File content:', fileContent);
-                // Now you can use 'fileContent' in your HTTP request or other operations
-                console.log("filename",filename)
-
-
-
-                console.log(apiUrl, requestOptions)
-                return fileContent
-            };
-
-            reader.onerror = function(event) {
-              console.error('File reading error:', event.target.error);
-            };
-            reader.readAsDataURL(file);
-             // Read the file as data URL (base64 encoded)
             const requestOptions = {
                 method: 'PUT',
                 headers: headers,
@@ -878,11 +868,24 @@ function renameFile(input) {
         var file = input.files[0];
         var newName = $("#DocNumber").val()+"."+fileExtension; // New filename
         var newFile = new File([file], newName, { type: file.type });
-
+        console.log(newFile)
         // Replace the original file with the renamed file in the file input
-        input.files[0] = newFile;
+        //input.files[0] = newFile;
         return newFile
     }
+}
+
+function renameFileDrop(input) {
+
+        var file = input.file;
+        var newName = $("#DocNumber").val()+"."+fileExtension; // New filename
+        var newFile = new File([file], newName);
+
+        // Replace the original file with the renamed file in the file input
+        //input.files = newFile;
+        console.log(newFile)
+        return newFile
+    
 }
 
 function getFileExtension(filename) {
