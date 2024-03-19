@@ -4,7 +4,7 @@ const hubID= "b.24d2d632-e01b-4ca0-b988-385be827cb04"
 const bucketKey = "wip.dm.emea.2"
 const defaultFolder = "urn:adsk.wipemea:fs.folder:co.fVQbMv6BQUefajn7evnmSw" // KELTBRAY - WIP Folder
 const templateFolderID = "urn:adsk.wipemea:fs.folder:co.2bLO3HWeQmq5d_oMM7dVuA" // APPROVED_TEMPLATES Folder
-
+const toolURL ="http://127.0.0.1:3000/index.html"
 
 
 const uploadfolders = [
@@ -136,7 +136,33 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+function signin(){
+    window.open("https://developer.api.autodesk.com/authentication/v2/authorize?response_type=code&client_id=UMPIoFc8iQoJ2eKS6GsJbCGSmMb4s1PY&redirect_uri="+toolURL+"&scope=data:read&prompt=login&state=12321321&code_challenge=fePr9SDGJIToHximLHTRokkzkfzZksznrDIx9bexsto&code_challenge_method=S256","_self")
+}
 
+window.onload = function() {
+    // Function to parse URL parameters
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    // Check if 'code' parameter exists in the URL
+    var codeParam = getParameterByName('code');
+    if (codeParam !== null) {
+        // Run your function here, for example:
+        console.log("Code parameter found: " + codeParam);
+        // Call your function here
+        // yourFunctionName(codeParam);
+    }else{
+        signin()
+    }
+}
 
 
 
