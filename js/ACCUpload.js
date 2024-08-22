@@ -842,11 +842,11 @@ async function findObjectByName(name,data) {
 
     }
 
-    function delay(ms) {
+function delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    function viewFile(){
+function viewFile(){
         // Use window.open to open a new tab
         window.open(fileLink, '_blank');
     }
@@ -861,7 +861,7 @@ function updateProgressBar(){
         x: `${progress}%`,
         duration: 0.5,
       });
-}
+    }
 
 function renameFile(input) {
     if (input.files && input.files.length > 0) {
@@ -873,7 +873,7 @@ function renameFile(input) {
         //input.files[0] = newFile;
         return newFile
     }
-}
+    }   
 
 function renameFileDrop(input) {
 
@@ -886,11 +886,11 @@ function renameFileDrop(input) {
         console.log(newFile)
         return newFile
     
-}
+    }
 
 function getFileExtension(filename) {
     return filename.match(/\.(.+)$/)[1];
-}
+    }
 
 async function uploadtoSignURLFetch(apiUrl, requestOptions){
     await fetch(apiUrl, requestOptions)  // Note the use of fetch.default
@@ -904,4 +904,4 @@ async function uploadtoSignURLFetch(apiUrl, requestOptions){
         }
 
     })
-}
+    }
